@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Page Title - SB Admin</title>
+        <link href="stylesheets/style.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="bg-primary">
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
+                                    <div class="card-body">
+                                        <form action="/signupform" method="POST" >
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        
+                                                        <label class="small mb-1" for="inputFirstName">First Name</label>
+                                                        <input class="form-control py-4" id="inputFirstName" name="First-name" type="text" placeholder="Enter first name" required onkeyup="validateFname()" />
+                                                        <span class='error-message' id='fname-error'></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1" for="inputLastName">Last Name</label>
+                                                        <input class="form-control py-4" id="inputLastName" name="last-name" type="text" placeholder="Enter last name" required onkeyup="validateLname()" />
+                                                        <span class='error-message' id='lname-error'></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputEmailAddress">Email</label>
+                                                <input class="form-control py-4" id="inputEmailAddress" name="email" type="email" aria-describedby="emailHelp" required placeholder="Enter email address" onkeyup="validateEmail()"  />
+                                                <span class='error-message' id='email-error'></span>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1" for="inputPassword">Password</label>
+                                                        <input class="form-control py-4" id="inputPassword" name="password" type="password" required placeholder="Enter password" onkeyup="validatePassword()" />
+                                                        <span class='error-message' id='password-error'></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        
+                                                        <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
+                                                        <input class="form-control py-4" id="inputCpassword" name="confirmPassword" required type="password" placeholder="Confirm password" onkeyup="validateCpassword()"  />
+                                                        <span class='error-message' id='cpassword-error'></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                                            <span class='error-message' id='submit-error'></span>
+                                            {{#if sign}}
+                            <p class="err" id="errmsg3" style="color: red; text-align: center;">User already exists</p>
+
+                                       {{/if }}
+                                       
+                                           <script>
+                                               setTimeout(function(){
+                                                    document.getElementById('errmsg3').innerHTML=""
+                                                }, 2000);
+                                                        
+                                                              </script>
+
+                                        </form>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <div class="small"><a href="/">Have an account? Go to login</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <div id="layoutAuthentication_footer">
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script>
+            function validateFname() {
+
+var name = document.getElementById('inputFirstName').value;
+
+if(name.length == 0) {
+
+  producePrompt('Please fill the field', 'fname-error' , 'red')
+  return false;
+
+}
+if (!name.match( /^[a-zA-Z\s]+$/)) {
+
+  producePrompt('Please enter a valid name','fname-error', 'red');
+  return false;
+
+}
+if (name.length<=2) {
+
+  producePrompt('Please enter a valid name','fname-error', 'red');
+  return false;
+
+}
+
+producePrompt('', 'fname-error', 'green');
+return true;
+
+}
+function validateLname() {
+
+var name = document.getElementById('inputLastName').value;
+
+if(name.length == 0) {
+
+  producePrompt('Please fill the field', 'lname-error' , 'red')
+  return false;
+
+}
+if (!name.match( /^[a-zA-Z\s]+$/)) {
+
+  producePrompt('Please enter a valid name','lname-error', 'red');
+  return false;
+
+}
+
+
+producePrompt('', 'lname-error', 'green');
+return true;
+
+}
+
+
+function validatePassword() {
+
+var name = document.getElementById('inputPassword').value;
+
+if(name.length == 0) {
+
+producePrompt('Please Enter Your Password', 'password-error' , 'red')
+return false;
+
+}
+else if(name.length<=2) {
+
+producePrompt('Password should contain minimum 3 charecters', 'password-error' , 'red')
+return false;
+
+}
+else{
+producePrompt('', 'password-error', 'green');
+return true;
+
+}
+    }
+    
+function validateCpassword() {
+var pass=document.getElementById('inputPassword').value;
+var cpass = document.getElementById('inputCpassword').value;
+
+
+if(cpass.length == 0) {
+
+producePrompt('Please Confirm Your Password', 'cpassword-error' , 'red')
+return false;
+
+}
+else if(pass!=cpass) {
+
+producePrompt('Password is not matching', 'cpassword-error' , 'red')
+return false;
+
+}
+else{
+producePrompt('Matched', 'cpassword-error', 'green');
+return true;
+
+}
+    }
+function validateEmail () {
+
+var email = document.getElementById('inputEmailAddress').value;
+
+if(email.length == 0) {
+
+  producePrompt('Please Enter Your Email','email-error', 'red');
+  return false;
+
+}
+
+if(!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+
+  producePrompt('Please Enter A valid Email Id', 'email-error', 'red');
+  return false;
+
+}
+
+producePrompt('', 'email-error', 'green');
+return true;
+
+}
+
+
+
+function validateForm() {
+if (!validateFname() || !validatePhone() || !validateEmail()||!validatePassword||!validateCpassword||!validateLname()) {
+  jsShow('submit-error');
+  producePrompt('PLEASE ENTER THE FORM PROPERLY', 'submit-error', 'red');
+  setTimeout(function(){jsHide('submit-error');}, 10000);
+}
+else {
+
+}
+}
+
+function jsShow(id) {
+document.getElementById(id).style.display = 'block';
+}
+
+function jsHide(id) {
+document.getElementById(id).style.display = 'none';
+}
+
+
+
+
+function producePrompt(message, promptLocation, color) {
+
+document.getElementById(promptLocation).innerHTML = message;
+document.getElementById(promptLocation).style.color = color;
+
+
+}</script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="javascripts/script.js"></script>
+    </body>
+</html>

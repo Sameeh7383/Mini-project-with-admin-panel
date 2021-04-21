@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>HOME PAGE</title>
+  </head>
+  <style>
+    .but{
+      background-color:  red;
+    
+    }
+    .navy{
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  margin: 0px;
+  min-height: 60px;
+  background-color: lightblue;
+  
+
+  
+}
+  </style>
+  <body style="overflow-x: hidden;">
+      <header>
+      <div class="row navy">
+      <div class="col-xl-12 my-auto">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          {{!-- <a class="navbar-brand" href="#"><img src="Images/text-1615876225744.png" width="150" />
+          </a> --}}
+          <div class="login-title text-center">
+                            <h2><span>Watch<strong>Shoppie</strong></span></h2>
+                     </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            
+            <button onclick="window.location.href='/logout'" class="btn btn-default justify-content-end mr-5 but">LOGOUT</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+    </header>
+
+    <div class="container mt-5 content-align-center ">
+        <div class="row">
+      {{#each result}}
+    <div class="col-md-3 col-12 col-sm-12  col-xl-3 mt-5 d-flex justify-content-center">
+        <div class="card " style="width: 18rem;">
+  <img class="card-img-top"   src="{{this.image}}" alt="Card image cap" style="height: 200px; width:250px">
+  <div class="card-body">
+    <h5 class="card-title">{{this.name}}</h5>
+    <p class="card-text">{{this.description}}</p>
+    <a href="#" class="btn btn-primary">Add to cart</a>
+  </div>
+</div>
+    </div>
+    {{/each}}
+    </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
